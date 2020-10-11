@@ -1,0 +1,27 @@
+syntax = "proto2";
+message Package {
+  // 任务ID
+  optional string task_id = 1;
+  // 来源标识
+  repeated string source =2;
+  // 数据包属性
+  enum ATTRIBUTES {
+    // 心跳
+    HEARTBEAT = 0;
+    // 执行任务
+    ISSUE_TASK =1;
+    // 取消任务
+    CANCEL_TASK = 2;
+    // 添加任务
+    ADD_TASK = 3;
+  }
+  required ATTRIBUTES attributes = 3;
+  // 数据base64加密
+  optional string issue = 4;
+  // 回调地址
+  optional string callback = 5;
+  // 时间戳
+  optional int64 timestamp = 6;
+
+
+}
